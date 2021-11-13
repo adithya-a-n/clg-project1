@@ -5,16 +5,15 @@ from typing import DefaultDict
 print("\nHBO DL Script by xblaze")
 print("Merge ")
 
-SubtitleEditexe="E:\webdl\SubtitleEdit\SubtitleEdit.exe"
-mp4decrypt="utils\mp4decrypt.exe"
-aria2c=" utils\\aria2c.exe"
-mkvmerge="utils\mkvmerge"
+
+mp4decrypt = "./Bento4-SDK-1-6-0-639.x86_64-unknown-linux/bin/mp4decrypt"
+mkvmerge = "./mkvmerge"
 
 filename = input("Enter the output file name (no spaces) : ")
 sub_url = input("\nEnter Subtitle URL: ")
 
-os.system(f'{aria2c} -o {filename}.vtt {sub_url}')
-os.system(f'{SubtitleEditexe} /convert {filename}.vtt srt')
+os.system(f'!aria2c -o {filename}.vtt {sub_url}')
+
 
 with open("key.txt", 'r') as f:
     file = f.readlines()
@@ -30,13 +29,15 @@ for i in range(0, length):
 
 print("\nDecrypting .....")
 begin = time.time()
-os.system(f'{mp4decrypt} {keys} encrypted.m4a C:\web_rip\decrypted.m4a')
-os.system(f'{mp4decrypt} {keys} encrypted.mp4 C:\web_rip\decrypted.mp4')
+os.system(f'{mp4decrypt} {keys} encrypted.m4a decrypted.m4a')
+os.system(f'{mp4decrypt} {keys} encrypted.mp4 decrypted.mp4')
+os.remove("encrypted.m4a")
+os.remove("encrypted.mp4")
 end = time.time()
 print(f"Time Taken For Decryption: {(end - begin)/60} mins")
 
 print("Merging .....")
-os.system(f'{mkvmerge} -o {filename}.mkv C:\web_rip\decrypted.mp4 C:\web_rip\decrypted.m4a {filename}.srt')
+os.system(f'{mkvmerge} -o {filename}.mkv decrypted.mp4 decrypted.m4a {filename}.vtt')
 print("\nAll Done .....")
 
 print("\nDo you want to delete the Encrypted Files : Press 1 for yes , 2 for no")
@@ -47,7 +48,6 @@ if delete_choice == 1:
     os.remove("encrypted.mp4")
     os.remove("C:\web_rip\decrypted.m4a")
     os.remove("C:\web_rip\decrypted.mp4")
-    os.remove(filename},".vtt")
-    os.remove(filename},".srt")
+    
 else:
     quit()
