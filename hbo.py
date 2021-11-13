@@ -15,7 +15,7 @@ audio_1=input("Enter the Path for the video Stream")
 
 sub_url = input("\nEnter Subtitle URL: ")
 
-os.system(f'!aria2c -o {filename}.vtt {sub_url}')
+os.system(f'aria2c -o {filename}.vtt {sub_url}')
 
 
 with open("key.txt", 'r') as f:
@@ -38,7 +38,7 @@ end = time.time()
 print(f"Time Taken For Decryption: {(end - begin)/60} mins")
 
 print("Merging .....")
-os.system(f'{mkvmerge} -o {filename}.mkv decrypted.mp4 decrypted.m4a {filename}.vtt')
+os.system(f'{mkvmerge} -o /content/drive/Shareddrives/blaze/test/{filename}.mkv decrypted.mp4 decrypted.m4a {filename}.vtt')
 print("\nAll Done .....")
 
 print("\nDo you want to delete the Encrypted Files : Press 1 for yes , 2 for no")
