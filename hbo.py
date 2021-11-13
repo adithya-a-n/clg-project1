@@ -10,6 +10,9 @@ mp4decrypt = "./Bento4-SDK-1-6-0-639.x86_64-unknown-linux/bin/mp4decrypt"
 mkvmerge = "./mkvmerge"
 
 filename = input("Enter the output file name (no spaces) : ")
+video_1=input("Enter the Path for the video Stream")
+audio_1=input("Enter the Path for the video Stream")
+
 sub_url = input("\nEnter Subtitle URL: ")
 
 os.system(f'!aria2c -o {filename}.vtt {sub_url}')
@@ -29,10 +32,8 @@ for i in range(0, length):
 
 print("\nDecrypting .....")
 begin = time.time()
-os.system(f'{mp4decrypt} {keys} encrypted.m4a decrypted.m4a')
-os.system(f'{mp4decrypt} {keys} encrypted.mp4 decrypted.mp4')
-os.remove("encrypted.m4a")
-os.remove("encrypted.mp4")
+os.system(f'{mp4decrypt} {keys} {video_1} decrypted.m4a')
+os.system(f'{mp4decrypt} {keys} {audio_1} decrypted.mp4')
 end = time.time()
 print(f"Time Taken For Decryption: {(end - begin)/60} mins")
 
