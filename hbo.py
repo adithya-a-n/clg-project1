@@ -9,9 +9,9 @@ print("Merge ")
 mp4decrypt = "./Bento4-SDK-1-6-0-639.x86_64-unknown-linux/bin/mp4decrypt"
 mkvmerge = "./mkvmerge"
 
-filename = input("Enter the output file name (no spaces) : ")
-video_1=input("Enter the Path for the video Stream")
-audio_1=input("Enter the Path for the video Stream")
+filename = input("Enter the output file name (no spaces): ")
+video_1=input("Enter the Path for the video Stream: ")
+audio_1=input("Enter the Path for the video Stream: ")
 
 sub_url = input("\nEnter Subtitle URL: ")
 
