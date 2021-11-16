@@ -19,7 +19,7 @@ os.system(f'aria2c -o encrypted.mp4 {vid_url}')
 os.system(f'aria2c -o encrypted.m4a {audio_url}')
 os.system(f'aria2c -o {filename}.vtt {sub_url}')
 
-subs="{filename}.vtt"
+subs= filename+".srt"
 
 
 with open("key.txt", 'r') as f:
