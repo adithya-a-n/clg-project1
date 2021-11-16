@@ -54,10 +54,7 @@ print("\nAll Done .....")
 print("\nDo you want to delete the Encrypted Files : Press 1 for yes , 2 for no")
 delete_choice = int(input("Enter Response : "))
 
-if delete_choice == 1:
-    os.remove("encrypted.m4a")
-    os.remove("encrypted.mp4")
-    os.remove("decrypted.m4a")
-    os.remove("decrypted.mp4")   
-else:
-    quit()
+
+
+os.remove("decrypted.m4a")
+os.remove("decrypted.mp4")   
