@@ -54,10 +54,5 @@ print("Merging .....")
 os.system(f'{mkvmerge} -o /content/drive/Shareddrives/blaze/test/{filename}.mkv decrypted.mp4 decrypted.m4a {filename}.srt')
 print("\nAll Done .....")
 
-print("\nDo you want to delete the Encrypted Files : Press 1 for yes , 2 for no")
-delete_choice = int(input("Enter Response : "))
-
-
-
 os.remove("decrypted.m4a")
 os.remove("decrypted.mp4")   
