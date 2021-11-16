@@ -48,7 +48,7 @@ print("\nFinished Decrypting Video.....")
 os.remove("encrypted.mp4")
 print("\n ")
 print("Merging .....")
-os.system(f'{mkvmerge} -o {filename}.mkv C:\web_rip\decrypted.mp4 C:\web_rip\decrypted.m4a {filename}.vtt')
+os.system(f'{mkvmerge} -o /content/drive/Shareddrives/blaze/test/{filename}.mkv decrypted.mp4 decrypted.m4a {filename}.vtt')
 print("\nAll Done .....")
 
 print("\nDo you want to delete the Encrypted Files : Press 1 for yes , 2 for no")
