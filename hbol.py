@@ -19,7 +19,7 @@ os.system(f'aria2c -o encrypted.mp4 {vid_url}')
 os.system(f'aria2c -o encrypted.m4a {audio_url}')
 os.system(f'aria2c -o {filename}.vtt {sub_url}')
 
-
+subs="{filename}.vtt"
 
 
 with open("key.txt", 'r') as f:
@@ -33,6 +33,8 @@ for i in range(0, length):
     kid = file[i][98 : 130]
 
     keys += f'--key {kid}:{key} '
+
+vtt_to_srt(path)
 
 print("\nDecrypting Audio.....")
 print("\n ")
@@ -48,7 +50,7 @@ print("\nFinished Decrypting Video.....")
 os.remove("encrypted.mp4")
 print("\n ")
 print("Merging .....")
-os.system(f'{mkvmerge} -o /content/drive/Shareddrives/blaze/test/{filename}.mkv decrypted.mp4 decrypted.m4a {filename}.vtt')
+os.system(f'{mkvmerge} -o /content/drive/Shareddrives/blaze/test/{filename}.mkv decrypted.mp4 decrypted.m4a {filename}.srt')
 print("\nAll Done .....")
 
 print("\nDo you want to delete the Encrypted Files : Press 1 for yes , 2 for no")
