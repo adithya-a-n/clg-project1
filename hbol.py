@@ -1,6 +1,7 @@
 import os
 from typing import DefaultDict
 from vtt_to_srt.vtt_to_srt import vtt_to_srt
+from pymkv import MKVFile
 
 print("\nHBO DL Script by xblaze")
 print("Required files :mkvmerge.exe, mp4decrypt.exe, aria2c.exe,subtitle edit\n")
@@ -51,8 +52,16 @@ print("\nFinished Decrypting Video.....")
 os.remove("encrypted.mp4")
 print("\n ")
 print("Merging .....")
-os.system(f'{mkvmerge} -o /content/drive/Shareddrives/blaze/test/{filename}.mkv decrypted.mp4 decrypted.m4a {filename}.srt')
+os.system(f'{mkvmerge} -o {filename}.mkv decrypted.mp4 decrypted.m4a {filename}.srt')
+
 print("\nAll Done .....")
+
+title1=input("Enter the Title Of the Release")
+mkv=filename+".mkv"
+mkv1=MKVFile(mkv)
+
+mkv1.title(title1) 
+
 
 os.remove("decrypted.m4a")
 os.remove("decrypted.mp4")   
