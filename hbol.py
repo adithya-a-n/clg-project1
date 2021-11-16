@@ -1,6 +1,5 @@
 import os
 from typing import DefaultDict
-from vtt_to_srt.vtt_to_srt import vtt_to_srt
 from pymkv import MKVFile
 
 print("\nHBO DL Script by xblaze")
@@ -21,7 +20,7 @@ os.system(f'aria2c -o encrypted.mp4 {vid_url}')
 os.system(f'aria2c -o encrypted.m4a {audio_url}')
 os.system(f'aria2c -o {filename}.vtt {sub_url}')
 
-subs= filename+".vtt"
+
 
 
 with open("key.txt", 'r') as f:
@@ -36,7 +35,7 @@ for i in range(0, length):
 
     keys += f'--key {kid}:{key} '
 
-vtt_to_srt(subs)
+
 
 print("\nDecrypting Audio.....")
 print("\n ")
@@ -52,7 +51,7 @@ print("\nFinished Decrypting Video.....")
 os.remove("encrypted.mp4")
 print("\n ")
 print("Merging .....")
-os.system(f'{mkvmerge} -o {filename}.mkv decrypted.mp4 decrypted.m4a {filename}.srt')
+os.system(f'{mkvmerge} -o {filename}.mkv decrypted.mp4 decrypted.m4a {filename}.vtt')
 
 print("\nAll Done .....")
 
