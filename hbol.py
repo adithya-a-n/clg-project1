@@ -1,5 +1,6 @@
 import os
 from typing import DefaultDict
+from vtt_to_srt.vtt_to_srt import vtt_to_srt
 
 print("\nHBO DL Script by xblaze")
 print("Required files :mkvmerge.exe, mp4decrypt.exe, aria2c.exe,subtitle edit\n")
